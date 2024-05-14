@@ -54,6 +54,15 @@ class _MyAppState extends State<MyApp> {
           numero = '0';
         });
         break;
+
+      case '<x':
+        setState(() {
+          if (numero.length > 0) {
+            numero = numero.substring(0, numero.length - 1);
+          }
+        });
+        break;
+
       case '=':
         double resultado = 0.0;
         numero = numero.replaceAll(',', '.');
@@ -145,10 +154,7 @@ class _MyAppState extends State<MyApp> {
                 Text(''),
                 GestureDetector(
                   onTap: () => calcular('<x'),
-                  child: Text(
-                    '<x',
-                    style: TextStyle(fontSize: 48),
-                  ),
+                  child: Image.asset('assets/images/arrow_back.png', width: 75,),
                 ),
               ],
             ),
@@ -288,7 +294,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ],
             ),
-            Text('Coluna 6'),
+            Text(''),
           ],
         ),
       ),
